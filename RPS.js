@@ -1,10 +1,12 @@
+//gets input from user via the console
+
 function getInput() {
     console.log("Please choose either 'rock', 'paper', or 'scissors'.");
     playerMove = prompt();
     return playerMove;
 }
 
-
+//randomly creates a move for the computer
 function randomPlay() {
     var randomNumber = Math.random();
     if (randomNumber < 0.33) {
@@ -17,6 +19,8 @@ function randomPlay() {
     return computerMove;
 }
 
+//gets player move
+//if move not specified runs getInput()
 function getPlayerMove(playerMove) {
     if (playerMove == null){
     playerMove = getInput();
@@ -24,7 +28,8 @@ function getPlayerMove(playerMove) {
     }
 }
 
-
+//gets computer move
+//if move not specified runs randomPlay()
 function getComputerMove(computerMove) {
     if (computerMove == null){
     computerMove=randomPlay();
@@ -32,7 +37,8 @@ function getComputerMove(computerMove) {
     }
 }
 
-
+//determines winner based on playerMove and computerMove
+//returns winner as player, computer or tie
 function getWinner(playerMove,computerMove) {
     var winner;
     if (playerMove==computerMove){
@@ -65,6 +71,7 @@ function getWinner(playerMove,computerMove) {
     return winner;
 }
 
+//sets the score based on each rounds winner
 function score(winner) {
     if (winner == 'player'){
         playerWins += 1;
@@ -81,7 +88,7 @@ function score(winner) {
         console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
 }
 
-
+//plays to specified number of wins
 var playerWins = 0;
 var computerWins = 0;
 var winner;
